@@ -8,6 +8,23 @@
     <meta name="description" content="Todo created using create-react-app" />
     <title>My Todo</title>
   </head>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyAfAFPJgRLhkvJSXfOXuhRroo_CKPBm2vs",
+      authDomain: "todoapp-f3334.firebaseapp.com",
+      databaseURL: "https://todoapp-f3334.firebaseio.com",
+      projectId: "todoapp-f3334",
+      storageBucket: "todoapp-f3334.appspot.com",
+      messagingSenderId: "184983670598",
+      appId: "1:184983670598:web:04ea86bad446a3c56ddf47",
+      measurementId: "G-50CB96B7ED",
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
   <body>
     <div id="root"></div>
   </body>
