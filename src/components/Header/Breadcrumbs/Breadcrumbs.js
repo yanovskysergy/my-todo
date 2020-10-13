@@ -15,7 +15,7 @@ const fakeBreadcrumbs = [
   },
 ];
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   breadcrumbs: {
     flexGrow: 1,
     marginLeft: 20,
