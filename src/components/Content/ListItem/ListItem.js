@@ -1,36 +1,28 @@
 import React from "react";
-import { Paper, IconButton } from "@material-ui/core";
-import { Delete } from "@material-ui/icons";
+import { Paper, IconButton, ListItem } from "@material-ui/core";
+import { Delete, Sort } from "@material-ui/icons";
 import { Draggable } from "react-beautiful-dnd";
 import style from "./list-item.module.scss";
 
-const DraggableItemWrapper = ({ children, id, index }) => {
+export default ({ todo, index, deleteTodo }) => {
   return (
-    <Draggable draggableId={id} index={index}>
+    <Draggable draggableId={todo.id} index={index}>
       {(provided) => (
         <div
           ref={provided.innerRef}
-          {...provided.draggableProps}
           {...provided.dragHandleProps}
+          {...provided.draggableProps}
         >
-          {children}
+          <Paper className={style["list-item"]}>
+            <p>{todo.text}</p>
+            <div className={style["button-wrapper"]}>
+              <IconButton onClick={() => deleteTodo(todo.id)}>
+                <Delete />
+              </IconButton>
+            </div>
+          </Paper>
         </div>
       )}
     </Draggable>
-  );
-};
-
-export default ({ todo, index, deleteTodo }) => {
-  return (
-    <DraggableItemWrapper id={todo.id} index={index}>
-      <Paper className={style["list-item"]}>
-        <p>{todo.text}</p>
-        <div className={style["button-wrapper"]}>
-          <IconButton onClick={() => deleteTodo(todo.id)}>
-            <Delete />
-          </IconButton>
-        </div>
-      </Paper>
-    </DraggableItemWrapper>
   );
 };
