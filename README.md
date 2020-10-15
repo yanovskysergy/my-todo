@@ -1,5 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## My TODO
+
+![](https://raw.githubusercontent.com/yanovskysergy/my-todo/master/public/assets/gif/my-todo.gif)
+
+Now, in this app you can:
+
+- added todo (locale)
+- delete todo (locale)
+- sort todo (locale)
+
 ## Available Scripts
 
 In the project directory, you can run:

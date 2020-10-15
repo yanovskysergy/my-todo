@@ -4,7 +4,7 @@ import ListTodos from "./ListTodos/ListTodos";
 import useTodoState from "../../hooks/useTodoState";
 import style from "./content.module.scss";
 
-const initial = Array.from({ length: 2 }, (v, k) => k).map((k) => {
+const initial = Array.from({ length: 5 }, (v, k) => k).map((k) => {
   return {
     id: `${k}`,
     text: `Todo ${k + 1}`,
