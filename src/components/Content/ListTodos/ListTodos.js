@@ -1,20 +1,39 @@
 import React from "react";
-import ListItem from "../ListItem/ListItem";
 import { Container } from "@material-ui/core";
-import "./list-todos.scss";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import arrayReorder from "../../../metods/arrayReorder";
+import ListItem from "../ListItem/ListItem";
+import style from "./list-todos.module.scss";
 
-export default ({ todos, deleteTodo }) => {
+export default ({ todos, setTodos, deleteTodo }) => {
+  function onDragEnd({ destination, source }) {
+    if (destination && destination.index !== source.index) {
+      setTodos(arrayReorder(todos, source.index, destination.index));
+    }
+  }
+
   return (
-    <Container id="root-todos-container" maxWidth="md">
-      {todos.map((todo, index) => {
-        return (
-          <ListItem
-            key={index}
-            todo={todo}
-            deleteTodo={() => deleteTodo(index)}
-          />
-        );
-      })}
-    </Container>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <Droppable droppableId="list">
+        {(provided) => (
+          <Container
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            className={style["root-todos-container"]}
+            maxWidth="md"
+          >
+            {todos.map((todo, index) => (
+              <ListItem
+                todo={todo}
+                index={index}
+                key={todo.id}
+                deleteTodo={deleteTodo}
+              />
+            ))}
+            {provided.placeholder}
+          </Container>
+        )}
+      </Droppable>
+    </DragDropContext>
   );
 };
