@@ -1,6 +1,6 @@
 import React from "react";
-import { Paper, IconButton, ListItem } from "@material-ui/core";
-import { Delete, Sort } from "@material-ui/icons";
+import { Paper, IconButton } from "@material-ui/core";
+import { Delete } from "@material-ui/icons";
 import { Draggable } from "react-beautiful-dnd";
 import style from "./list-item.module.scss";
 

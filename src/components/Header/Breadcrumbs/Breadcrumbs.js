@@ -1,5 +1,5 @@
 import React from "react";
-import { Breadcrumbs, Link, Toolbar } from "@material-ui/core";
+import { Breadcrumbs, Link } from "@material-ui/core";
 import makeStyles from "@material-ui/styles/makeStyles";
 
 const fakeBreadcrumbs = [
@@ -11,7 +11,7 @@ const fakeBreadcrumbs = [
   {
     name: "To do something",
     href: "#",
-    onClick: () => console.log("Todos"),
+    onClick: () => console.log("To do something"),
   },
 ];
 

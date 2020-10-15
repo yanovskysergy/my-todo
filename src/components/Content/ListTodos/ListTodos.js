@@ -22,14 +22,16 @@ export default ({ todos, setTodos, deleteTodo }) => {
             className={style["root-todos-container"]}
             maxWidth="md"
           >
-            {todos.map((todo, index) => (
-              <ListItem
-                todo={todo}
-                index={index}
-                key={todo.id}
-                deleteTodo={deleteTodo}
-              />
-            ))}
+            {todos.length > 0
+              ? todos.map((todo, index) => (
+                  <ListItem
+                    todo={todo}
+                    index={index}
+                    key={todo.id}
+                    deleteTodo={deleteTodo}
+                  />
+                ))
+              : "You have no tasks"}
             {provided.placeholder}
           </Container>
         )}
