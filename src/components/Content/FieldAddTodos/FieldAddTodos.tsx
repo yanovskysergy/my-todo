@@ -5,10 +5,14 @@ import IconButton from "@material-ui/core/IconButton";
 import { Done } from "@material-ui/icons";
 import useInputState from "../../../hooks/useInputState";
 
-export default ({ addedTodo }) => {
+interface IProps {
+  addedTodo: (text: string) => void;
+}
+
+export default ({ addedTodo }: IProps) => {
   const { value, onChange, reset } = useInputState();
 
-  const onSubmit = (event) => {
+  const onSubmit = (event: React.FormEvent) => {
     event && event.preventDefault && event.preventDefault();
     addedTodo(value);
     reset();

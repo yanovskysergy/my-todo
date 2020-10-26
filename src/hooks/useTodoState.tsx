@@ -1,6 +1,14 @@
 import React from "react";
+import { TodoItem } from "../types/types";
 
-export default (initialState) => {
+export default (
+  initialState: TodoItem[]
+): {
+  todos: TodoItem[];
+  setTodos: (todos: TodoItem[]) => void;
+  addedTodo: (text: string) => void;
+  deleteTodo: (id: string) => void;
+} => {
   const [todos, setTodos] = React.useState(initialState);
   const nexId = React.useRef(todos.length);
 

@@ -4,7 +4,16 @@ import { Delete } from "@material-ui/icons";
 import { Draggable } from "react-beautiful-dnd";
 import style from "./list-item.module.scss";
 
-export default ({ todo, index, deleteTodo }) => {
+// Types
+import { TodoItem } from "../../../types/types";
+
+interface IProps {
+  todo: TodoItem;
+  index: number;
+  deleteTodo: () => void;
+}
+
+export default ({ todo, index, deleteTodo }: IProps) => {
   return (
     <Draggable draggableId={todo.id} index={index}>
       {(provided) => (
@@ -16,7 +25,7 @@ export default ({ todo, index, deleteTodo }) => {
           <Paper className={style["list-item"]}>
             <p>{todo.text}</p>
             <div className={style["button-wrapper"]}>
-              <IconButton onClick={() => deleteTodo(todo.id)}>
+              <IconButton onClick={deleteTodo}>
                 <Delete />
               </IconButton>
             </div>

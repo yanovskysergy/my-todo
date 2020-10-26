@@ -3,16 +3,12 @@ import FieldAddTodos from "./FieldAddTodos/FieldAddTodos";
 import ListTodos from "./ListTodos/ListTodos";
 import useTodoState from "../../hooks/useTodoState";
 import style from "./content.module.scss";
-
-const initial = Array.from({ length: 5 }, (v, k) => k).map((k) => {
-  return {
-    id: `${k}`,
-    text: `Todo ${k + 1}`,
-  };
-});
+import createTodos from "../../metods/createTodos";
 
 export default () => {
-  const { todos, setTodos, addedTodo, deleteTodo } = useTodoState(initial);
+  const { todos, setTodos, addedTodo, deleteTodo } = useTodoState(
+    createTodos(5)
+  );
 
   return (
     <div className={style["content"]}>

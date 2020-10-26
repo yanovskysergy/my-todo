@@ -4,11 +4,18 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import arrayReorder from "../../../metods/arrayReorder";
 import ListItem from "../ListItem/ListItem";
 import style from "./list-todos.module.scss";
+import { TodoItem } from "../../../types/types";
 
-export default ({ todos, setTodos, deleteTodo }) => {
-  function onDragEnd({ destination, source }) {
+interface IProps {
+  todos: TodoItem[];
+  setTodos: (todos: TodoItem[]) => void;
+  deleteTodo: (id: string) => void;
+}
+
+export default ({ todos, setTodos, deleteTodo }: IProps) => {
+  function onDragEnd({ destination, source }: any) {
     if (destination && destination.index !== source.index) {
-      setTodos(arrayReorder(todos, source.index, destination.index));
+      setTodos(arrayReorder<TodoItem>(todos, source.index, destination.index));
     }
   }
 
@@ -25,10 +32,10 @@ export default ({ todos, setTodos, deleteTodo }) => {
             {todos.length > 0
               ? todos.map((todo, index) => (
                   <ListItem
-                    todo={todo}
-                    index={index}
                     key={todo.id}
-                    deleteTodo={deleteTodo}
+                    index={index}
+                    todo={todo}
+                    deleteTodo={() => deleteTodo(todo.id)}
                   />
                 ))
               : "You have no tasks"}

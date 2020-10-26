@@ -2,6 +2,12 @@ import React from "react";
 import { Breadcrumbs, Link } from "@material-ui/core";
 import makeStyles from "@material-ui/styles/makeStyles";
 
+interface IBreadcrumb {
+  name: string;
+  href: string;
+  onClick: () => void;
+}
+
 const fakeBreadcrumbs = [
   {
     name: "Todos",
@@ -24,17 +30,17 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default () => {
-  const classes = useStyles();
+  const style = useStyles();
 
   return (
     <Breadcrumbs
-      className={classes.breadcrumbs}
+      className={style["breadcrumbs"]}
       separator="›"
       aria-label="breadcrumb"
     >
-      {fakeBreadcrumbs.map((breadcrumbs) => (
-        <Link color="inherit" href={breadcrumbs.href}>
-          {breadcrumbs.name}
+      {fakeBreadcrumbs.map((breadcrumb: IBreadcrumb) => (
+        <Link color="inherit" href={breadcrumb.href}>
+          {breadcrumb.name}
         </Link>
       ))}
     </Breadcrumbs>
