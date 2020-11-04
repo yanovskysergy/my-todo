@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../components/Header/Header";
-import Content from "../components/Content/Content";
-import Footer from "../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+import Content from "../Content/Content";
+import Footer from "../../components/Footer/Footer";
 import style from "./App.module.scss";
 
 function App() {

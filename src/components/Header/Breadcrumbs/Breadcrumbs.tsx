@@ -38,8 +38,8 @@ export default () => {
       separator="›"
       aria-label="breadcrumb"
     >
-      {fakeBreadcrumbs.map((breadcrumb: IBreadcrumb) => (
-        <Link color="inherit" href={breadcrumb.href}>
+      {fakeBreadcrumbs.map((breadcrumb: IBreadcrumb, index: number) => (
+        <Link key={index} color="inherit" href={breadcrumb.href}>
           {breadcrumb.name}
         </Link>
       ))}

@@ -1,21 +1,19 @@
 import React from "react";
 import { Container } from "@material-ui/core";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import arrayReorder from "../../../metods/arrayReorder";
 import ListItem from "../ListItem/ListItem";
 import style from "./list-todos.module.scss";
-import { TodoItem } from "../../../types/types";
+import { StoreState } from "../../store/reducers";
+import { reorderTodo } from "../../store/actions/todos";
+import { useDispatch, useSelector } from "react-redux";
 
-interface IProps {
-  todos: TodoItem[];
-  setTodos: (todos: TodoItem[]) => void;
-  deleteTodo: (id: string) => void;
-}
+export default () => {
+  const dispatch = useDispatch();
+  const todos = useSelector((state: StoreState) => state.todos);
 
-export default ({ todos, setTodos, deleteTodo }: IProps) => {
   function onDragEnd({ destination, source }: any) {
     if (destination && destination.index !== source.index) {
-      setTodos(arrayReorder<TodoItem>(todos, source.index, destination.index));
+      dispatch(reorderTodo(source.index, destination.index));
     }
   }
 
@@ -31,12 +29,7 @@ export default ({ todos, setTodos, deleteTodo }: IProps) => {
           >
             {todos.length > 0
               ? todos.map((todo, index) => (
-                  <ListItem
-                    key={todo.id}
-                    index={index}
-                    todo={todo}
-                    deleteTodo={() => deleteTodo(todo.id)}
-                  />
+                  <ListItem key={todo.id} index={index} todo={todo} />
                 ))
               : "You have no tasks"}
             {provided.placeholder}

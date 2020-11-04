@@ -14,6 +14,7 @@
     "@types/react": "^16.9.53",
     "@types/react-beautiful-dnd": "^13.0.0",
     "@types/react-dom": "^16.9.8",
+    "@types/react-redux": "^7.1.9",
     "customize-cra": "^1.0.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.1.2",
@@ -21,7 +22,9 @@
     "react-app-rewired": "^2.1.6",
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.14.0",
+    "react-redux": "^7.2.2",
     "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
     "typescript": "^4.0.3"
   },
   "scripts": {

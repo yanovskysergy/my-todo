@@ -1,21 +1,24 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { deleteTodo } from "../../store/actions/todos";
 import { Paper, IconButton } from "@material-ui/core";
 import { Delete } from "@material-ui/icons";
 import { Draggable } from "react-beautiful-dnd";
 import style from "./list-item.module.scss";
 
 // Types
-import { TodoItem } from "../../../types/types";
+import { TodoItem } from "../../types/types";
 
 interface IProps {
   todo: TodoItem;
   index: number;
-  deleteTodo: () => void;
 }
 
-export default ({ todo, index, deleteTodo }: IProps) => {
+export default ({ todo, index }: IProps) => {
+  const dispatch = useDispatch();
+
   return (
-    <Draggable draggableId={todo.id} index={index}>
+    <Draggable draggableId={`${todo.id}`} index={index}>
       {(provided) => (
         <div
           ref={provided.innerRef}
@@ -25,7 +28,7 @@ export default ({ todo, index, deleteTodo }: IProps) => {
           <Paper className={style["list-item"]}>
             <p>{todo.text}</p>
             <div className={style["button-wrapper"]}>
-              <IconButton onClick={deleteTodo}>
+              <IconButton onClick={() => dispatch(deleteTodo(todo.id))}>
                 <Delete />
               </IconButton>
             </div>
