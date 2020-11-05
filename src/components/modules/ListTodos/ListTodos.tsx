@@ -3,8 +3,8 @@ import { Container } from "@material-ui/core";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import ListItem from "../ListItem/ListItem";
 import style from "./list-todos.module.scss";
-import { StoreState } from "../../store/reducers";
-import { reorderTodo } from "../../store/actions/todos";
+import { StoreState } from "../../../store/reducers";
+import { reorderTodo } from "../../../store/actions/todos";
 import { useDispatch, useSelector } from "react-redux";
 
 export default () => {

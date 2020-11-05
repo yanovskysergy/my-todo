@@ -1,0 +1,53 @@
+.overview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+  }
+  h4 {
+    margin-top: 5px;
+  }
+
+  .dependencies {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: fit-content;
+    padding: 20px;
+    margin: 25px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .punctuation {
+      text-align: left;
+    }
+    .item {
+      width: fit-content;
+      margin: 0 30px;
+    }
+  }
+
+  .apps {
+    margin: 40px;
+
+    .link {
+      padding: 5px;
+      border-radius: 2px;
+      background-color: #f5f5f5;
+      transition: all 0.2s;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}

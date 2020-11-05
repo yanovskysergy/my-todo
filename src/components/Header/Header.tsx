@@ -1,18 +1,16 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
-import { Toolbar, IconButton, Button } from "@material-ui/core";
-import { Menu } from "@material-ui/icons";
-import Breadcrumbs from "./Breadcrumbs/Breadcrumbs";
+import { Toolbar } from "@material-ui/core";
+import { ButtonNavigation } from "../Navigation/Navigation";
+import Logo from "../sharedComponents/Logo/Logo";
 
 export default () => {
   return (
     <AppBar color="primary" position="sticky">
       <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu">
-          <Menu />
-        </IconButton>
-        <Breadcrumbs />
-        <Button color="inherit">Login</Button>
+        <ButtonNavigation />
+        <Logo />
+        {/*<Breadcrumbs />*/}
       </Toolbar>
     </AppBar>
   );

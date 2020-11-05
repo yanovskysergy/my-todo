@@ -8,7 +8,7 @@ const getMaxId = (todos: TodoItem[]) => {
     : 1;
 };
 
-const initialState = Array.from({ length: 10 }, (v, k) => k).map(
+const initialState = Array.from({ length: 5 }, (v, k) => k).map(
   (k): TodoItem => {
     return {
       id: k,
